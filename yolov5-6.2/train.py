@@ -636,7 +636,7 @@ def get_tran_cfg():
 def load_config(opt, cfg):
     if not Path(cfg).exists():
         return
-    with open("cfg", "rb") as f:
+    with open(cfg, "rb") as f:
         data = yaml.load(f, yaml.FullLoader)
     for k, val in data.items():
         k = k.replace("-", "_")
