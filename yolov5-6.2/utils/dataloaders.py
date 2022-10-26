@@ -572,24 +572,24 @@ class LoadImagesAndLabels(Dataset):
 
         hyp = self.hyp
         mosaic = self.mosaic and random.random() < hyp['mosaic']
+        p_rand_cut = hyp.get("rand_cut", 0.25)
         if mosaic:
             # Load mosaic
             img, labels = self.load_mosaic(index)
             shapes = None
-
             # MixUp augmentation
             if random.random() < hyp['mixup']:
-                img, labels = mixup(img, labels, *self.load_mosaic(random.randint(0, self.n - 1)))
-
+                img, labels = mixup(img, labels, *self.load_mosaic(random.randint(0, self.n - 1), p_rand_cut))
         else:
             # Load image
             img, (h0, w0), (h, w) = self.load_image(index)
-
-            is_rand_cut = random.random() < hyp.get("rand_cut", 0.3)
+            is_rand_cut = random.random() < p_rand_cut
             if is_rand_cut:
                 img, labels = rand_cut(img, self.labels[index], [self.img_size, self.img_size], 0.13)
                 pad = 0, 0
                 ratio = 1., 1.
+                h0, w0, _ = img.shape
+                h, w = h0, w0
                 shapes = (h0, w0), ((h / h0, w / w0), pad)  # for COCO mAP rescaling
             else:
                 # Letterbox
