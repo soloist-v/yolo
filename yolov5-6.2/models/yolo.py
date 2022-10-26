@@ -304,11 +304,11 @@ class ClassificationModel(BaseModel):
 
 
 def parse_model(d, ch):  # model_dict, input_channels(3)
-    from models.segnext import MSCAN
-    from models.shufflenetv2 import conv_bn_relu_maxpool, Shuffle_Block
-    from models.mobilenet import h_sigmoid, h_swish, SELayer, conv_bn_hswish, MobileNet_Block
-    from models.GSConv_SlimNeck import VoVGSCSP, GSConv
-    from models.msca_and_c3 import SpatialAttention
+    from models.custom.segnext import MSCAN
+    from models.custom.shufflenetv2 import conv_bn_relu_maxpool, Shuffle_Block
+    from models.custom.mobilenet import h_sigmoid, h_swish, SELayer, conv_bn_hswish, MobileNet_Block
+    from models.custom.GSConv_SlimNeck import VoVGSCSP, GSConv
+    from models.custom.msca_and_c3 import SpatialAttention
     # Parse a YOLOv5 model.yaml dictionary
     LOGGER.info(f"\n{'':>3}{'from':>18}{'n':>3}{'params':>10}  {'module':<40}{'arguments':<30}")
     anchors, nc, gd, gw, act = d['anchors'], d['nc'], d['depth_multiple'], d['width_multiple'], d.get('activation')
