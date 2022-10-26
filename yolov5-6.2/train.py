@@ -219,7 +219,8 @@ def train(hyp, opt, device, callbacks):  # hyp is path/to/hyp.yaml or hyp dictio
 
         if not resume:
             if not opt.noautoanchor:
-                check_anchors(dataset, model=model, thr=hyp['anchor_t'], imgsz=imgsz, force=opt.force_anchor)  # run AutoAnchor
+                check_anchors(dataset, model=model, thr=hyp['anchor_t'], imgsz=imgsz,
+                              force=opt.force_anchor)  # run AutoAnchor
             model.half().float()  # pre-reduce anchor precision
 
         callbacks.run('on_pretrain_routine_end', labels, names)
@@ -626,7 +627,15 @@ def run(**kwargs):
     return opt
 
 
-def load_config(opt):
+def get_tran_cfg():
+    if len(sys.argv) == 2:
+        return sys.argv.pop()
+    return ""
+
+
+def load_config(opt, cfg):
+    if not Path(cfg).exists():
+        return
     with open("train.yaml", "rb") as f:
         data = yaml.load(f, yaml.FullLoader)
     for k, val in data.items():
@@ -636,6 +645,7 @@ def load_config(opt):
 
 if __name__ == "__main__":
     os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+    config_path = get_tran_cfg()
     opt = parse_opt()
-    load_config(opt)
+    load_config(opt, config_path)
     main(opt)
