@@ -1,0 +1,19 @@
+dataset_name: "data/temp.yaml"
+img_dir: "D:/Dataset/CF/zombie_all"
+xml_dir: "D:/Dataset/CF/zombie_all"
+save_dir: "D:/Dataset/CF/train"
+names: [ 'lvjuren',
+         'diyu',
+         'weizhuang',
+         'gangtie',
+         'xukong',
+         'zhongjie',
+         'miwu',
+         'fkbb',
+         'xiaohong',
+         'baojun',
+         'yaoji',
+         'renzhe',
+         'nvhuang', ]
+is_pair: False  # 是否必须是一对 也就是标签和图片必须同时存在时才加入数据
+force_clear: False
