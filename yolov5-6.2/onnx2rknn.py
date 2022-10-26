@@ -4,12 +4,12 @@ from rknn.api import RKNN
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--onnx', type=str, required=True, help='weights path')
-    parser.add_argument('--rknn', type=str, default='', help='保存路径')
-    parser.add_argument('--dataset', type=str, default="./dataset.txt", help='dataset txt')
-    parser.add_argument('--precompile', action="store_true", help='是否是预编译模型')
+    parser.add_argument('-i', '--onnx', type=str, required=True, help='weights path')
+    parser.add_argument('-o', '--rknn', type=str, default='', help='保存路径')
+    parser.add_argument('-d', '--dataset', type=str, default="./dataset.txt", help='dataset txt')
+    parser.add_argument('-p', '--precompile', action="store_true", help='是否是预编译模型')
     parser.add_argument("--div_255", action="store_true", help="input / 255")
-    parser.add_argument('--batch-size', type=int, default=1, help='batch size')
+    parser.add_argument('-b', '--batch-size', type=int, default=1, help='batch size')
     parser.add_argument('--platform', type=str, default="rk3399pro", help='target platform')
     opt = parser.parse_args()
     print("options:\n\t", opt)
@@ -45,8 +45,10 @@ if __name__ == '__main__':
     assert ret == 0, "Build onnx failed!"
     # Export model
     print('--> Export RKNN model')
-    # ret = rknn.export_rknn(RKNN_MODEL)
-    ret = rknn.export_rknn_precompile_model(RKNN_MODEL)
+    if opt.precompile:
+        ret = rknn.export_rknn(RKNN_MODEL)
+    else:
+        ret = rknn.export_rknn_precompile_model(RKNN_MODEL)
     assert ret == 0, "Export %s.rknn failed!" % opt.rknn
     print("rknn export success, saved as %s" % RKNN_MODEL)
     print('done')
