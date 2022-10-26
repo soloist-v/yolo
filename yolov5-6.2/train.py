@@ -635,6 +635,7 @@ def load_config(opt):
 
 
 if __name__ == "__main__":
+    os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
     opt = parse_opt()
     load_config(opt)
     main(opt)

@@ -1,7 +1,7 @@
-weights: weights/yolov5s6.pt  # 初始化权重
-cfg: models/yolov5s_full.yaml  # 模型配置文件
+weights: weights/yolov5s.pt  # 初始化权重
+cfg: models/custom_model/yolov5s_slimneck.yaml  # 模型配置文件
 data: data/temp.yaml  # 训练数据配置文件
-hyp: data/hyps/hyp.scratch-med.yaml  # 超参数配置文件
+hyp: data/hyps/hyp.scratch-custom.yaml  # 超参数配置文件
 force_anchor: True
 epochs: 300  # 回合数
 batch-size: 16  # 批大小
@@ -14,14 +14,14 @@ noautoanchor: False  # 关闭 anchor 自动聚类
 noplots: False  # 关闭 anchor 自动聚类
 evolve: 0  # 多少次后进化超参数
 bucket: ""  # gsutil bucket
-cache: ram  # 将数据缓存到内存或者磁盘 "ram" (default) or "disk"
+cache: disk  # 将数据缓存到内存或者磁盘 "ram" (default) or "disk"
 image-weights: False  # 是否根据图片的权重动态选择训练时的图片
 device: 0  # GPU设备  0 or 0,1,2,3 or cpu
 multi_scale: True  # 多缩放比例
 single-cls: False  # 是否是单类别
 optimizer: SGD  # 是否使用adam优化
 sync-bn: False  # 是否使用 SyncBatchNorm, only available in DDP mode
-workers: 16  # 数据加载进程数
+workers: 2  # 数据加载进程数
 project: runs/train  # 训练目录
 name: exp  # 每次训练保存的名字前缀
 exist-ok: False  # 是否覆盖
