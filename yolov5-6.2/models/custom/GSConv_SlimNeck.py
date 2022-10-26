@@ -23,6 +23,8 @@ class GSConv(nn.Module):
         y = x2.reshape(b_n, 2, h * w)
         y = y.permute(1, 0, 2)
         y = y.reshape(2, -1, n // 2, h, w)
+        # y0, y1 = y.split([1, 1], 0)
+        # return torch.cat((y0.squeeze(dim=0), y1.squeeze(dim=0)), 1)
         return torch.cat((y[0], y[1]), 1)
 
 
