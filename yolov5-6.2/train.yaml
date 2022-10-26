@@ -1,0 +1,39 @@
+weights: weights/yolov5s6.pt  # 初始化权重
+cfg: models/yolov5s_full.yaml  # 模型配置文件
+data: data/temp.yaml  # 训练数据配置文件
+hyp: data/hyps/hyp.scratch-med.yaml  # 超参数配置文件
+force_anchor: True
+epochs: 300  # 回合数
+batch-size: 16  # 批大小
+imgsz: 640  # 图片训练尺寸
+rect: False  # 是否开启 rectangular training( 矩形训练 也就是 w 、 h 不相等的模式，默认是正方向训练，会导致图片被缩放变小)
+resume: False  # 恢复到最后一次训练
+nosave: False  # 只在最后一次保存模型
+noval: True  # 只在最后一个回合跑验证集
+noautoanchor: False  # 关闭 anchor 自动聚类
+noplots: False  # 关闭 anchor 自动聚类
+evolve: 0  # 多少次后进化超参数
+bucket: ""  # gsutil bucket
+cache: ram  # 将数据缓存到内存或者磁盘 "ram" (default) or "disk"
+image-weights: False  # 是否根据图片的权重动态选择训练时的图片
+device: 0,1  # GPU设备  0 or 0,1,2,3 or cpu
+multi_scale: True  # 多缩放比例
+single-cls: False  # 是否是单类别
+optimizer: SGD  # 是否使用adam优化
+sync-bn: False  # 是否使用 SyncBatchNorm, only available in DDP mode
+workers: 16  # 数据加载进程数
+project: runs/train  # 训练目录
+name: exp  # 每次训练保存的名字前缀
+exist-ok: False  # 是否覆盖
+quad: False  # quad dataloader
+cos-lr: True  # cosine LR scheduler
+label-smoothing: 0.0  # Label smoothing epsilon
+patience: 100  # EarlyStopping patience (epochs without improvement)
+freeze: [ 0 ]  # Number of layers to freeze. backbone=10, all=24, not_mlp=-1
+save-period: -1  # Save checkpoint every x epochs (disabled if < 1)
+local_rank: -1  # Automatic DDP Multi-GPU argument, do not modify
+entity: null  # W&B: Entity
+upload_dataset: False  # W&B: Upload data, "val" option
+bbox_interval: -1  # W&B: Set bounding-box image logging interval
+artifact_alias: latest  # W&B: Version of dataset artifact to use
+finetunes: 15

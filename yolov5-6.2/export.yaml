@@ -1,0 +1,23 @@
+data: ""
+weights: "weights/game/cf_zmobie_MSCAN.pt"
+imgsz: [ 640, 640 ]  # image (h, w)
+batch-size: 1
+device: "cpu"
+half: False
+inplace: False
+keras: False
+optimize: False  # TorchScript: optimize for mobile
+int8: False  # CoreML/TF INT8 quantization
+dynamic: False  # ONNX/TF: dynamic axes
+simplify: True  # ONNX: simplify model
+opset: 12
+rknn: False
+verbose: False
+workspace: 4  # TensorRT: workspace size (GB)
+nms: False  # TF: add NMS to model
+agnostic-nms: false
+topk-per-class: 100
+topk-all: 100
+iou-thres: 0.45
+conf-thres: 0.25
+include: [ 'onnx' ]  # torchscript, onnx, openvino, engine, coreml, saved_model, pb, tflite, edgetpu, tfjs

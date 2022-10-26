@@ -1,0 +1,15 @@
+img_dir: "D:/dataset/utils/game/pubg/images"
+txt_dir: "D:/dataset/utils/game/pubg/labels"
+save_dir: "D:/dataset/utils/game/pubg/save"
+is_clear: False
+names: [ "Player",
+         "head",
+         "bird",
+         "bicycle",
+         "car",
+         "motorcycle",
+         "truck",
+         "atv",
+         "ship",
+         "buggy",
+         "bus", ]

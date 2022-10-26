@@ -1,0 +1,4 @@
+img_dir: "D:/dataset/utils/game/pubg/images"
+label_dir: "D:/dataset/utils/game/pubg/save"
+cache_dir: "D:/dataset/utils/game/pubg/cut_cache"
+save_dir: "D:/dataset/utils/game/pubg/cut1"

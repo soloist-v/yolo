@@ -1,0 +1,9 @@
+YoloV5:
+  class: "Predictor"
+  kwargs:
+    path: "weights/yolov5m.pt"
+    device: "cuda:0"
+    imgsz: 640
+    conf_thres: 0.3
+    iou_thres: 0.3
+    max_det: 100
