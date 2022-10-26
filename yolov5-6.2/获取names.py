@@ -3,8 +3,8 @@ from pathlib import Path
 from collections import defaultdict
 
 if __name__ == '__main__':
-    img_dir = r"D:\dataset\project\衢州电力\all"
-    label_dir = r"D:\dataset\project\衢州电力\all"
+    img_dir = r"D:\dataset\project\all"
+    label_dir = r"D:\dataset\project\all"
     names = set()
     target_names = ["gongxie", "yuxie", "tacai"]
     counter = defaultdict(lambda: 0)

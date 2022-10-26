@@ -1,19 +1,7 @@
 dataset_name: "data/temp.yaml"
-img_dir: "/home/server/disk2/public/衢州电力/0-数据集ALL/一二期合并/train/true"
-xml_dir: "/home/server/disk2/public/衢州电力/0-数据集ALL/一二期合并/train/true"
+img_dir: ""
+xml_dir: ""
 save_dir: "data/train"
-names: [ 'anquandai_cloth','anquandai_front','anquandai_illegal','anquandai_ok','anquanzhu','baiyechuang',
-         'baohuqi','biandiangui','biandiangui_small','biandian_anquandai_no','biandian_anquandai_ok','bianyaqi',
-         'bolichuang','caitiaobu','caozuoshi_close','caozuoshi_open','caozuotai','ciping','cuofeng_no','denggaoji',
-         'diangan_hengzhi','diangan_qingxie','diangao','dianhanguang','dianhanji','dianhanmianzhao','dianlangou',
-         'dianlanguan','dianlanjing','dianlanjing_open','dianlankong','diaobi','diaoche','diaogou_close','diaogou_open',
-         'diaojizhitui','diaojizhitui_open','gaiban','gandong','gangguanta','gaoyashebei','gongchengchui','hengdan',
-         'houchekuang','hualun','jiaobanji','jiaobanji_fanghuzhao_no','jiaobanji_fanghuzhao_ok','jiaokou','jikeng',
-         'kongdong','kongyaji','kongyaji_fanghuzhao_no','kongyaji_fanghuzhao_ok','kuayue','miehuoqi','miehuoqixiang',
-         'moguangji','muti','paiqishan','panpa','qiegeji','qiegeji_fanghuzhao_no','qiegeji_fanghuzhao_ok','qiping_pingwo',
-         'qiping_zhili','ren','ren_denggan','ruanti','shouchizuan','tacai','taitui','tieta','tizi','tizi_fanghua',
-         'tizi_fanghua_no','tizi_jinshu','weilanzhuang','weilan_caiqi','weilan_sanjiao','weilan_shuini','weilan_yingzhi',
-         'yusan','zhendongbang','zhenmu','zhenmu_no','ruanti_break','paiqikou','tizi_bianya','caozuowei','weilan_line',
-         'gaoya_box','qiegeji_small','diaogou', 'tizi_kao_ciping' ]
+names: []
 is_pair: False  # 是否必须是一对 也就是标签和图片必须同时存在时才加入数据
 force_clear: True

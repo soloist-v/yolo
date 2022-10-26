@@ -5,9 +5,9 @@ from pathlib import Path
 from shutil import copy
 
 if __name__ == '__main__':
-    img_dir = r"D:\dataset\project\衢州电力\all"
-    xml_dir = r"D:\dataset\project\衢州电力\all"
-    sava_dir = r"D:\dataset\project\衢州电力\tacai_copy"
+    img_dir = r"D:\dataset\project\all"
+    xml_dir = r"D:\dataset\project\all"
+    sava_dir = r"D:\dataset\project\tacai_copy"
     targets_names = {"tacai", ""}
     for name, img_path, xml_path in get_pair_sample_from_dir(img_dir, xml_dir):
         if not Path(xml_path).exists():

@@ -68,7 +68,7 @@ img_suffix = {"png", "jpg", 'bmp'}
 fix_name_map = {"person": 'ren', "helmet": "anquanmao"}
 conf_thres = .3
 if __name__ == '__main__':
-    target_dir = r'D:\dataset\project\衢州电力\高空抛物_安全帽_图片'  # 要预测的图片路径
+    target_dir = r'D:\dataset\project'  # 要预测的图片路径
     names = ['anquanmao']
     # names = ['person']
     # 设置模型

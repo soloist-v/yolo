@@ -64,7 +64,7 @@ class GenVideoData:
 
 
 if __name__ == '__main__':
-    video_dir = r"D:\WorkDir\项目\衢州电力1期\dataset\show_videos\all.mp4"
+    video_dir = r"D:\WorkDir\dataset\show_videos\all.mp4"
     save_dir = r""
     g = GenVideoData("weights/yolov5s.pt", 640)
     g.run(video_dir, save_dir)

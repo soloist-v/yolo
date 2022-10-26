@@ -41,7 +41,7 @@ def merge_xml(img_dir, xml_dir, save_dir, clear_old=False):
 
 if __name__ == '__main__':
     is_clear = True
-    img_dir = r"/mnt/mydrive/public/衢州电力/0-数据集ALL/一二期合并/img/"
-    xml_dir = r"/mnt/mydrive/public/衢州电力/0-数据集ALL/一二期合并/xml/"
-    save_dir = r"/mnt/mydrive/public/衢州电力/0-数据集ALL/一二期合并/train/true"
+    img_dir = r"/mnt/mydrive/public/img/"
+    xml_dir = r"/mnt/mydrive/public/xml/"
+    save_dir = r"/mnt/mydrive/public/train/true"
     merge_xml(img_dir, xml_dir, save_dir, is_clear)
