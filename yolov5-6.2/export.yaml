@@ -1,5 +1,5 @@
 data: ""
-weights: "weights/game/cf_zmobie_MSCAN.pt"
+weights: "weights/game/yolov5s_slimneck.pt"
 imgsz: [ 640, 640 ]  # image (h, w)
 batch-size: 1
 device: "cpu"
