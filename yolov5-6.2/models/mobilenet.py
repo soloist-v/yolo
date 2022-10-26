@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from models.conv import Conv
+from models.common import Conv
 
 
 # ---------------------------- MobileBlock start -------------------------------

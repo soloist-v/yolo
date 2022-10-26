@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from torch import Tensor
 from typing import Tuple
-from models.conv import Conv
+from models.common import Conv
 from torch.nn.modules.utils import _pair as to_2tuple
 
 

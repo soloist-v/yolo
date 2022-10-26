@@ -307,6 +307,8 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
     from models.segnext import MSCAN
     from models.shufflenetv2 import conv_bn_relu_maxpool, Shuffle_Block
     from models.mobilenet import h_sigmoid, h_swish, SELayer, conv_bn_hswish, MobileNet_Block
+    from models.GSConv_SlimNeck import VoVGSCSP, GSConv
+    from models.msca_and_c3 import SpatialAttention
     # Parse a YOLOv5 model.yaml dictionary
     LOGGER.info(f"\n{'':>3}{'from':>18}{'n':>3}{'params':>10}  {'module':<40}{'arguments':<30}")
     anchors, nc, gd, gw, act = d['anchors'], d['nc'], d['depth_multiple'], d['width_multiple'], d.get('activation')
@@ -327,14 +329,15 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
         if m in {
             Conv, GhostConv, Bottleneck, GhostBottleneck, SPP, SPPF, DWConv, MixConv2d, Focus, CrossConv,
             BottleneckCSP, C3, C3TR, C3SPP, C3Ghost, nn.ConvTranspose2d, DWConvTranspose2d, C3x, SpatialAttention,
-            MSCAN, conv_bn_relu_maxpool, Shuffle_Block, h_sigmoid, h_swish, SELayer, conv_bn_hswish, MobileNet_Block
+            MSCAN, conv_bn_relu_maxpool, Shuffle_Block, h_sigmoid, h_swish, SELayer, conv_bn_hswish, MobileNet_Block,
+            GSConv, VoVGSCSP,
         }:
             c1, c2 = ch[f], args[0]
             if c2 != no:  # if not output
                 c2 = make_divisible(c2 * gw, 8)
 
             args = [c1, c2, *args[1:]]
-            if m in {BottleneckCSP, C3, C3TR, C3Ghost, C3x, SpatialAttention}:
+            if m in {BottleneckCSP, C3, C3TR, C3Ghost, C3x, SpatialAttention, VoVGSCSP}:
                 args.insert(2, n)  # number of repeats
                 n = 1
         elif m is nn.BatchNorm2d:
