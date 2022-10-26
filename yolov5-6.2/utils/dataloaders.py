@@ -586,10 +586,10 @@ class LoadImagesAndLabels(Dataset):
             is_rand_cut = random.random() < p_rand_cut
             if is_rand_cut:
                 img, labels = rand_cut(img, self.labels[index], [self.img_size, self.img_size], 0.13)
-                pad = 0, 0
-                ratio = 1., 1.
                 h0, w0, _ = img.shape
                 h, w = h0, w0
+                shape = self.batch_shapes[self.batch[index]] if self.rect else self.img_size  # final letterboxed shape
+                img, ratio, pad = letterbox(img, shape, auto=False, scaleup=self.augment)
                 shapes = (h0, w0), ((h / h0, w / w0), pad)  # for COCO mAP rescaling
             else:
                 # Letterbox
