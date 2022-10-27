@@ -46,9 +46,9 @@ if __name__ == '__main__':
     # Export model
     print('--> Export RKNN model')
     if opt.precompile:
-        ret = rknn.export_rknn(RKNN_MODEL)
-    else:
         ret = rknn.export_rknn_precompile_model(RKNN_MODEL)
+    else:
+        ret = rknn.export_rknn(RKNN_MODEL)
     assert ret == 0, "Export %s.rknn failed!" % opt.rknn
     print("rknn export success, saved as %s" % RKNN_MODEL)
     print('done')
