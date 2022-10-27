@@ -616,6 +616,7 @@ def load_config(opt):
     for k, val in data.items():
         k = k.replace("-", "_")
         setattr(opt, k, val)
+    assert not (opt.rknn and opt.dynamic)
 
 
 if __name__ == "__main__":

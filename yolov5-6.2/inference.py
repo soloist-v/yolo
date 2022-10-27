@@ -673,9 +673,9 @@ def falling_test(predictor: Predictor, video_path):
 
 if __name__ == '__main__':
     predictor = Predictor(
-        r"weights/best.pt",
+        r"weights/qzdl_v5m_10_26.pt",
         "cuda:0", 640, iou_thres=0.3, conf_thres=0.5, half=False, ratio=0.99,
         classes=None)
-    # falling_test(predictor, r"D:\dataset\project\衢州电力\高空抛物_安全帽")
-    test_video(r"D:\WorkDir\dataset\src_videos", predictor)
-    # test_images(predictor, r"D:\dataset\project\工地项目\gongdi1")
+    # falling_test(predictor, r"D:\dataset\project\QZDL\高空抛物_安全帽")
+    test_video(r"D:\WorkDir\项目\QZDL\打雨伞", predictor)
+    # test_images(predictor, r"D:\dataset\project\gongdi1")

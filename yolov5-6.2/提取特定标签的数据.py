@@ -5,10 +5,12 @@ from pathlib import Path
 from shutil import copy
 
 if __name__ == '__main__':
-    img_dir = r"D:\dataset\project\all"
-    xml_dir = r"D:\dataset\project\all"
-    sava_dir = r"D:\dataset\project\tacai_copy"
-    targets_names = {"tacai", ""}
+    img_dir = r"D:\dataset\project\QZDL\all"
+    xml_dir = r"D:\dataset\project\QZDL\all"
+    sava_dir = r"D:\dataset\project\QZDL\panpa_copy"
+    targets_names = {"panpa"}
+
+    os.makedirs(sava_dir, exist_ok=True)
     for name, img_path, xml_path in get_pair_sample_from_dir(img_dir, xml_dir):
         if not Path(xml_path).exists():
             continue
@@ -22,5 +24,6 @@ if __name__ == '__main__':
         base_name, ext = os.path.splitext(name)
         t_img = os.path.join(sava_dir, name)
         t_xml = os.path.join(sava_dir, f'{base_name}.xml')
+        print(img_path, t_img)
         copy(img_path, t_img)
         copy(xml_path, t_xml)

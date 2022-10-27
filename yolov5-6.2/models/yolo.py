@@ -62,7 +62,8 @@ class Detect(nn.Module):
         for i in range(self.nl):
             x[i] = self.m[i](x[i])  # conv
             bs, _, ny, nx = map(int, x[i].shape)  # x(bs,255,20,20) to x(bs,3,20,20,85)
-            bs = -1
+            if self.dynamic:
+                bs = -1
             x[i] = x[i].view(bs, self.na, self.no, ny, nx).permute(0, 1, 3, 4, 2).contiguous()
             if self.rknn:
                 x[i] = x[i].sigmoid()
@@ -80,7 +81,7 @@ class Detect(nn.Module):
                     xy = (xy * 2 + self.grid[i]) * self.stride[i]  # xy
                     wh = (wh * 2) ** 2 * self.anchor_grid[i]  # wh
                     y = torch.cat((xy, wh, conf), 4)
-                z.append(y.view(-1, self.na * nx * ny, self.no))
+                z.append(y.view(bs, self.na * nx * ny, self.no))
         if self.rknn:
             return x
         return x if self.training else (torch.cat(z, 1),) if self.export else (torch.cat(z, 1), x)
